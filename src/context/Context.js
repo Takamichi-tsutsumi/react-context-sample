@@ -42,7 +42,7 @@ export const connect = (stateToProps, dispatchToProps) => {
         Object.keys(dispatches).forEach(key => {
           this.dispatches[key] = (...params) => {
             dispatches[key](...params);
-            this.setState(stateToProps(store));
+            this.setState(stateToProps(store)); // TODO: effectively update component
           };
         });
       }
