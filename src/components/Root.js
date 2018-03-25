@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Child from './Child';
+import MyReduxComp from '../context/Context';
 import { Provider } from '../context/Context';
 
 class Root extends Component {
@@ -14,16 +15,7 @@ class Root extends Component {
   };
 
   render() {
-    return (
-      <Provider
-        value={{
-          state: this.state,
-          actions: this.actions
-        }}
-      >
-        <Child />
-      </Provider>
-    );
+    return <MyReduxComp />;
   }
 }
 
