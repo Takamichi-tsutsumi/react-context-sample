@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import Child from './Child';
-import TodoContext from '../context/TodoContext';
+import { Provider } from '../context/Context';
 
 class Root extends Component {
   state = {
-    todos: ['hello', 'world']
+    todos: []
   };
 
   actions = {
@@ -15,14 +15,14 @@ class Root extends Component {
 
   render() {
     return (
-      <TodoContext.Provider
+      <Provider
         value={{
           state: this.state,
           actions: this.actions
         }}
       >
         <Child />
-      </TodoContext.Provider>
+      </Provider>
     );
   }
 }

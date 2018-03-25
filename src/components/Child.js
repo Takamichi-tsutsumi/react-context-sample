@@ -1,12 +1,12 @@
 import React, { Fragment, Component } from 'react';
-import TodoContext from '../context/TodoContext';
+import { Consumer } from '../context/Context';
 
 export default class Child extends Component {
   input;
 
   render() {
     return (
-      <TodoContext.Consumer>
+      <Consumer>
         {({ state, actions }) => {
           return (
             <Fragment>
@@ -27,7 +27,7 @@ export default class Child extends Component {
             </Fragment>
           );
         }}
-      </TodoContext.Consumer>
+      </Consumer>
     );
   }
 }
