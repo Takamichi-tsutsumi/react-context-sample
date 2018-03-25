@@ -31,14 +31,13 @@ const dispatch = action => {
 
 export const connect = (stateToProps, dispatchToProps) => {
   const dispatches = dispatchToProps(dispatch);
-  const state = stateToProps(store);
 
   return C => {
     return class ConnectedComponent extends PureComponent {
       constructor() {
         super();
         this.dispatches = {};
-        this.state = state;
+        this.state = stateToProps(store);
 
         Object.keys(dispatches).forEach(key => {
           this.dispatches[key] = (...params) => {
